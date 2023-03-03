@@ -1,1 +1,1 @@
-# LaundryAPI
+Laundry API using springboot framework
