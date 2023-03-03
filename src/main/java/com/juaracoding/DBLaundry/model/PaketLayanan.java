@@ -22,7 +22,8 @@ import java.util.List;
 public class PaketLayanan {
 
     @Id
-    @Column(name = "IDListHarga")
+    @Column(name = "IDListHarga",unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idListHarga;
 
     @NotEmpty(message = ConstantMessage.WARNING_NAMA_PAKET_EMPTY)

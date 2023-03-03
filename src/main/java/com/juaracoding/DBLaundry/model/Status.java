@@ -16,7 +16,8 @@ import java.util.List;
 public class Status {
 
     @Id
-    @Column(name="IDStatus")
+    @Column(name="IDStatus",unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idStatus;
 
     @Column(name="Status")

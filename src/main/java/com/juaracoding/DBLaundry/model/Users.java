@@ -42,7 +42,7 @@ public class Users {
      */
 
     @Id
-    @Column(name = "IDuser")
+    @Column(name = "IDuser",unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUser;
 

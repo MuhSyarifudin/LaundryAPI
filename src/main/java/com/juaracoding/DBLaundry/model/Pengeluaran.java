@@ -8,10 +8,7 @@ Created on 01/03/2023 22:27
 Version 1.1
 */
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -20,7 +17,8 @@ import java.util.Date;
 public class Pengeluaran {
 
     @Id
-    @Column(name = "IDPengeluaran")
+    @Column(name = "IDPengeluaran",unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPengeluaran;
 
     @Column(name = "NamaPengeluaran")

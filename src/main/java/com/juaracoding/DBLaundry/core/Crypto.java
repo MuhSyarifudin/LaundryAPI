@@ -49,7 +49,7 @@ public class Crypto {
 
     public static void main(String[] args) {
 
-        String strToEncrypt = "";//put text to encrypt in here
+        String strToEncrypt = "123.Brilian";//put text to encrypt in here
         String encryptionResult = new Crypto().performEncrypt(strToEncrypt);
         System.out.println("Encryption Result : "+encryptionResult);
 

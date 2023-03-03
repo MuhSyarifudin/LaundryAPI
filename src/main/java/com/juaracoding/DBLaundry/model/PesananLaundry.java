@@ -17,7 +17,7 @@ import java.util.Date;
 public class PesananLaundry {
 
     @Id
-    @Column(name = "IDPesanan")
+    @Column(name = "IDPesanan",unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPesanan;
 
