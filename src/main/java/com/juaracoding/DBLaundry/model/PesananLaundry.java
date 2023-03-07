@@ -9,7 +9,6 @@ Version 1.1
 */
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -44,10 +43,10 @@ public class PesananLaundry {
     private Status idStatus;
 
     /*
-    * Audit Trails
+    * Start Audit Trails
     * */
     @Column(name = "CreatedDate")
-    private Date createdAt = new Date();
+    private Date createdDate = new Date();
 
     @Column(name = "ModifiedDate")
     private Date modifiedDate;
@@ -61,6 +60,9 @@ public class PesananLaundry {
     @Column(name = "IsDelete")
     private byte isDelete = 0;
 
+    /*
+    * End Audit Trails
+    * */
     public Long getIdPesanan() {
         return idPesanan;
     }
@@ -117,12 +119,12 @@ public class PesananLaundry {
         this.idStatus = idStatus;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public void setCreatedDate(Date createdAt) {
+        this.createdDate = createdAt;
     }
 
     public Date getModifiedDate() {

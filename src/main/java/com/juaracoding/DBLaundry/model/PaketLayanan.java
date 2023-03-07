@@ -11,9 +11,7 @@ Version 1.1
 import com.juaracoding.DBLaundry.utils.ConstantMessage;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import javax.validation.spi.ConfigurationState;
 import java.util.List;
 
@@ -40,8 +38,10 @@ public class PaketLayanan {
     @NotEmpty(message = ConstantMessage.WARNING_TIPE_PAKET_EMPTY)
     @NotNull(message = ConstantMessage.WARNING_TIPE_PAKET_NULL)
     @NotBlank(message = ConstantMessage.WARNING_TIPE_PAKET_BLANK)
-    @Column(name = "Tipe",nullable = false)
-    private byte tipeLayanan;
+    @ManyToOne
+    @JoinColumn(name = "IDTipe")
+    private TipeLayanan tipeLayanan;
+
 
     public Long getIdListHarga() {
         return idListHarga;
@@ -67,11 +67,11 @@ public class PaketLayanan {
         this.harga = harga;
     }
 
-    public byte getTipeLayanan() {
+    public TipeLayanan getTipeLayanan() {
         return tipeLayanan;
     }
 
-    public void setTipeLayanan(byte tipeLayanan) {
+    public void setTipeLayanan(TipeLayanan tipeLayanan) {
         this.tipeLayanan = tipeLayanan;
     }
 }

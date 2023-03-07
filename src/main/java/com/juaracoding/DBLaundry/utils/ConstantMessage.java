@@ -1,9 +1,20 @@
 package com.juaracoding.DBLaundry.utils;
 
 public class ConstantMessage {
+
 /*
+* Global
+* */
+    public final static String SUCCESS_SAVE = "DATA BERHASIL DIBUAT";
+    public final static String WARNING_DATA_EMPTY = "DATA TIDAK ADA";
+    public final static String SUCCESS_FIND = "DATA DITEMUKAN";
+
+
+
+
+    /*
 user
- */
+*/
     public final static String WARNING_NAMA_EMPTY = "NAMA TIDAK BOLEH KOSONG";
 
     public final static String WARNING_NAMA_BLANK = "NAMA TIDAK BOLEH BLANK";
@@ -41,4 +52,13 @@ user
     public final static String WARNING_TIPE_PAKET_EMPTY = "HARGA PAKET TIDAK BOLEH EMPTY";
 
     public final static String WARNING_TIPE_PAKET_BLANK = "HARGA PAKET TIDAK BOLEH BLANK";
+
+    public final static String WARNING_USERNAME_EMPTY = "USERNAME TIDAK BOLEH KOSONG";
+
+    public final static String WARNING_USERNAME_NULL = "USERNAME TIDAK BOLEH NULL";
+
+    public final static String WARNING_USERNAME_BLANK = "USERNAME TIDAK BOLEH BLANK";
+
+    public final static String WARNING_USERNAME_MAX_LENGTH = "USERNAME MAKSIMAL 10 KARAKTER DAN MINIMAL 5 KARAKTER";
+
 }

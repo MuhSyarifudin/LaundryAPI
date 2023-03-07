@@ -12,34 +12,12 @@ import com.juaracoding.DBLaundry.utils.ConstantMessage;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "MstUser", uniqueConstraints = @UniqueConstraint(columnNames = "Email"))
 public class Users {
-     /*
-  start audit trails
-   */
-
-    @Column(name = "CreatedDate", nullable = false)
-    private Date createdDate = new Date();
-
-    @Column(name = "CreatedBy", nullable = false)
-    private Integer createdBy = 1;
-
-    @Column(name = "ModifiedDate")
-    private Date modifiedDate;
-    @Column(name = "ModifiedBy")
-    private Integer modifiedBy;
-
-    @Column(name = "IsDelete", nullable = false)
-    private Byte isDelete = 0;
-    /*
-        end audit trails
-     */
 
     @Id
     @Column(name = "IDuser",unique = true)
@@ -60,7 +38,14 @@ public class Users {
     private String email;
 
     @Column(name = "EmailVerifiedAt")
-    private Date emailVerifiedAt = new Date();
+    private Date emailVerifiedAt;
+
+    @NotEmpty(message = ConstantMessage.WARNING_USERNAME_EMPTY)
+    @NotNull(message = ConstantMessage.WARNING_USERNAME_NULL)
+    @NotBlank(message = ConstantMessage.WARNING_USERNAME_BLANK)
+    @Length(message = ConstantMessage.WARNING_USERNAME_MAX_LENGTH,min = 5,max = 8)
+    @Column(name = "Username")
+    private String username;
 
     @NotEmpty(message = ConstantMessage.WARNING_PASSWORD_EMPTY)
     @NotNull(message = ConstantMessage.WARNING_PASSWORD_NULL)
@@ -72,6 +57,29 @@ public class Users {
     @Column(name = "RememberToken")
     private String rememberToken;
 
+    @Column(name = "Role")
+    private String role;
+    /*
+  start audit trails
+   */
+
+    @Column(name = "CreatedDate", nullable = false)
+    private Date createdDate = new Date();
+
+    @Column(name = "CreatedBy", nullable = false)
+    private Integer createdBy = 1;
+
+    @Column(name = "ModifiedDate")
+    private Date modifiedDate;
+    @Column(name = "ModifiedBy")
+    private Integer modifiedBy;
+
+    @Column(name = "IsDelete", nullable = false)
+    private Byte isDelete = 0;
+
+    /*
+        end audit trails
+     */
 
     public Date getCreatedDate() {
         return createdDate;
@@ -160,4 +168,16 @@ public class Users {
     public void setRememberToken(String rememberToken) {
         this.rememberToken = rememberToken;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getRole() {return role;}
+
+    public void setRole(String role) {this.role = role;}
 }

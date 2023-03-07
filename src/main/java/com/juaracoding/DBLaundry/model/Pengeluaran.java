@@ -27,11 +27,23 @@ public class Pengeluaran {
     @Column(name = "Biaya")
     private String biaya;
 
-    @Column(name = "CreatedAt")
-    private Date createdAt = new Date();
+    /*
+    * Start Audit Trails
+    * */
+    @Column(name = "CreatedDate")
+    private Date createdDate = new Date();
 
-    @Column(name = "UpdatedAt")
-    private LocalDate updatedAt;
+    @Column(name = "ModifiedDate")
+    private LocalDate updatedDate;
+
+    @Column(name = "ModifiedBy")
+    private byte modifiedBy = 1;
+
+    @Column(name = "IsDelete")
+    private byte isDelete = 0;
+    /*
+    * End Audit Trails
+    * */
 
     public Long getIdPengeluaran() {
         return idPengeluaran;
@@ -57,19 +69,35 @@ public class Pengeluaran {
         this.biaya = biaya;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
-    public LocalDate getUpdatedAt() {
-        return updatedAt;
+    public LocalDate getUpdatedDate() {
+        return updatedDate;
     }
 
-    public void setUpdatedAt(LocalDate updatedAt) {
-        this.updatedAt = updatedAt;
+    public void setUpdatedDate(LocalDate updatedDate) {
+        this.updatedDate = updatedDate;
+    }
+
+    public byte getModifiedBy() {
+        return modifiedBy;
+    }
+
+    public void setModifiedBy(byte modifiedBy) {
+        this.modifiedBy = modifiedBy;
+    }
+
+    public byte getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(byte isDelete) {
+        this.isDelete = isDelete;
     }
 }
